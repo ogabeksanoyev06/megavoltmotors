@@ -1,0 +1,30 @@
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+}
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    180deg,
+    #2c2c2c 0%,
+    rgba(0, 255, 255, 0.78) 1891.69%
+  );
+  font-weight: 400;
+  overflow-x: hidden;
+  color: #181818;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
