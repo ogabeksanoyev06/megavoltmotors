@@ -10,11 +10,7 @@
     "
   >
     <div class="container">
-      <p
-        class="text-center text-[#00FFFF] font-semibold text-[28px] sm:text-[32px] md:text-[40px] mb-[40px] uppercase"
-      >
-        BOG’LANISH
-      </p>
+      <titile-base-component :title="'BOG’LANISH'" />
       <div
         class="flex flex-col items-center gap-y-8 lg:gap-x-10 lg:flex-row lg:items-start"
       >
@@ -156,7 +152,9 @@
 </template>
 
 <script>
+import TitileBaseComponent from "../shared-components/TitileBaseComponent.vue";
 export default {
+  components: { TitileBaseComponent },
   name: "feed-backs",
   data() {
     return {

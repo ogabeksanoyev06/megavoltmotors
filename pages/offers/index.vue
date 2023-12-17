@@ -1,6 +1,7 @@
 <template>
   <div class="py-[40px]">
-    <div class="container">
+    <main-loading v-if="loading" />
+    <div class="container" v-else>
       <div class="flex flex-col mb-[40px]">
         <span class="text-white font-semibold text-2xl md:text-[50px]">
           Maxsus takliflar
@@ -61,15 +62,19 @@
 </template>
 
 <script>
+import MainLoading from "../../components/shared-components/MainLoading.vue";
 export default {
+  components: { MainLoading },
   name: "offers",
   data() {
     return {
       offersList: [],
+      loading: false,
     };
   },
   methods: {
     getOffersList() {
+      this.loading = true;
       this.$axios
         .$get("cars/list/?limit=1000")
         .then((response) => {
@@ -81,7 +86,9 @@ export default {
         .catch((error) => {
           console.error("Malumotlarni olishda xato yuz berdi:", error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.loading = false;
+        });
     },
   },
   mounted() {

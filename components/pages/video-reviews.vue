@@ -1,11 +1,8 @@
 <template>
   <div class="py-10">
     <div class="container">
-      <p
-        class="text-center text-[#00FFFF] font-semibold text-[28px] sm:text-[32px] md:text-[40px] mb-[40px] uppercase"
-      >
-        VIDEO SHARHLAR
-      </p>
+      <titile-base-component :title="'VIDEO SHARHLAR'" />
+
       <div class="lg:flex hidden justify-end gap-5 mb-5 inset-x-0 z-[999]">
         <div class="button-prev btn" @click="prev()">
           <svg
@@ -108,7 +105,7 @@
             class="w-full h-[114px] absolute bottom-[-100%] left-0 group-hover:bottom-0 transition-all px-5"
           >
             <p class="text-black text-sm font-semibold line-clamp-2">
-              {{ item.description_uz }}
+              {{ item[$localeKey("description")] }}
             </p>
             <div class="flex items-center mt-3">
               <span class="mr-1">
@@ -151,9 +148,10 @@
 
 <script>
 import BaseModal from "../shared-components/BaseModal.vue";
+import TitileBaseComponent from "../shared-components/TitileBaseComponent.vue";
 export default {
   name: "video-swiper",
-  components: { BaseModal },
+  components: { BaseModal, TitileBaseComponent },
   data() {
     return {
       swiperOption: {
@@ -224,6 +222,7 @@ export default {
       this.activeVideo = url;
     },
   },
+  computed: {},
   mounted() {
     this.getCarsList();
   },

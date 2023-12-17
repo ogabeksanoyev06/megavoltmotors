@@ -1,11 +1,7 @@
 <template>
-  <div class="py-10">
+  <div class="py-10 mt-20">
     <div class="container">
-      <p
-        class="text-center text-[#00FFFF] font-semibold text-[28px] sm:text-[32px] md:text-[40px] mb-[40px] uppercase"
-      >
-        Katalog
-      </p>
+      <titile-base-component :title="'Katalog'" />
       <swiper :options="swiperOption">
         <swiper-slide
           v-for="(car, index) in carsList"
@@ -117,9 +113,10 @@
 
 <script>
 import FeedbackModal from "../shared-components/Feedback-modal.vue";
+import TitileBaseComponent from "../shared-components/TitileBaseComponent.vue";
 export default {
   name: "car-swiper",
-  components: { FeedbackModal },
+  components: { FeedbackModal, TitileBaseComponent },
   data() {
     return {
       swiperOption: {

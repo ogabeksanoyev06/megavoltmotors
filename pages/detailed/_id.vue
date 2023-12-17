@@ -1,11 +1,12 @@
 <template>
   <div class="py-[40px]">
+    <main-loading v-if="loading" />
     <div class="container">
       <div
         class="flex flex-col gap-y-8 lg:gap-x-10 lg:flex-row items-start mb-10"
       >
-        <div class="lg:flex-1 flex">
-          <swiper class="swiper max-w-[500px]" :options="swiperOptions">
+        <div class="lg:flex-1 flex max-w-[500px] w-full">
+          <swiper class="swiper w-full" :options="swiperOptions">
             <swiper-slide
               class="swiper-slide w-full"
               v-for="(image, i) in images"
@@ -88,7 +89,9 @@
 </template>
 
 <script>
+import MainLoading from "../../components/shared-components/MainLoading.vue";
 export default {
+  components: { MainLoading },
   name: "DetailedView",
   data() {
     return {
@@ -381,10 +384,12 @@ export default {
       carId: null,
       car: [],
       images: [],
+      loading: false,
     };
   },
   methods: {
     getCategoryCar() {
+      this.loading = true;
       this.$axios
         .$get(`car/${this.carId}/`)
         .then((response) => {
@@ -394,7 +399,9 @@ export default {
         .catch((error) => {
           console.error("Malumotlarni olishda xato yuz berdi:", error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.loading = false;
+        });
     },
   },
   mounted() {

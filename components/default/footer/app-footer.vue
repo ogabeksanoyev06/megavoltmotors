@@ -1,5 +1,5 @@
 <template>
-  <div class="footer w-full py-12 bg-[#262626] z-[999]">
+  <div class="footer w-full py-12 bg-[#000] z-[999]">
     <div class="container">
       <div
         class="flex flex-col items-center border-b border-white border-b-[0.5px] pb-8"
@@ -215,7 +215,7 @@
                 class="text-white text-base leading-140 transition-200 font-semibold"
                 href="mailto:info@kia-qarshi.uz"
               >
-                info@kia-qarshi.uz
+                info@megavoltmotors.uz
               </a>
             </div>
           </div>
@@ -254,11 +254,11 @@
               <p class="text-gray-400 text-sm leading-140">Manzil</p>
               <a
                 class="text-white text-base transition-200 leading-140 font-semibold"
-                href="https://yandex.ru/maps/?pt=65.81497192382812,38.81831117374662&amp;z=18&amp;l=map"
+                href="#"
                 target="_blank"
               >
-                Qarshi shahri, Jayhun ko’chasi, 30K uy</a
-              >
+                Toshkent shahar,Sergeli tumani,TKAD 58-B
+              </a>
             </div>
           </div>
         </div>

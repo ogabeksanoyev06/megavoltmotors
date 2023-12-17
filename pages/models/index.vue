@@ -1,100 +1,108 @@
 <template>
   <div class="relative h-screen">
-    <div class="absolute w-full bottom-5 md:bottom-0 left-0 mb-11 z-[98]">
-      <div class="w-full container">
-        <transition name="silde-fide">
-          <div class="flex items-center justify-center md:justify-start gap-5">
-            <div class="max-w-[110px] md:max-w-[160px] h-[56px] md:h-[78px]">
-              <img
-                :src="activeList?.images[0].image"
-                alt="main-bg"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div class="flex items-center gap-3">
+    <main-loading v-if="loading" />
+    <div v-else>
+      <div class="absolute w-full bottom-5 md:bottom-0 left-0 mb-11 z-[98]">
+        <div class="w-full container">
+          <transition name="silde-fide">
+            <div
+              class="flex items-center justify-center md:justify-start gap-5"
+            >
+              <div class="max-w-[110px] md:max-w-[160px] h-[56px] md:h-[78px]">
+                <img
+                  :src="activeList?.images[0].image"
+                  alt="main-bg"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <p
+                    class="text-sm md:text-[32px] leading-5 md:leading-[45px] font-normal text-white"
+                  >
+                    {{ activeList?.name_uz }}
+                  </p>
+                </div>
                 <p
-                  class="text-sm md:text-[32px] leading-5 md:leading-[45px] font-normal text-white"
+                  class="leading-17 text-xs md:text-sm font-semibold text-[#00ffff] mt-1"
                 >
-                  {{ activeList?.name_uz }}
+                  <span>{{ activeList?.price }}</span> dan UZS
                 </p>
               </div>
-              <p
-                class="leading-17 text-xs md:text-sm font-semibold text-[#00ffff] mt-1"
+            </div>
+          </transition>
+          <div class="flex justify-between items-center mt-6">
+            <div
+              class="flex items-center flex-col md:flex-row w-full md:w-auto gap-6"
+            >
+              <button
+                @click="isModal = true"
+                class="w-full md:w-auto justify-center md:justify-start rounded-[8px] py-3 px-8 bg-[#00ffff] bg-opacity-50 flex items-center gap-2 text-base leading-6 font-normal text-white transition-all hover:bg-opacity-20 active:scale-95"
               >
-                <span>{{ activeList?.price }}</span> dan UZS
-              </p>
+                Ariza qoldirish
+              </button>
+              <a
+                :href="activeList?.instruction"
+                target="_blank"
+                class="w-full md:w-auto justify-center md:justify-start rounded-[8px] py-3 sm:px-8 bg-[#00ffff] bg-opacity-50 flex-center gap-2 text-base leading-6 font-normal text-white transition-all hover:bg-opacity-20 active:scale-95"
+              >
+                Barcha ma'lumotlarni yuklab olish
+              </a>
             </div>
           </div>
-        </transition>
-        <div class="flex justify-between items-center mt-6">
-          <div
-            class="flex items-center flex-col md:flex-row w-full md:w-auto gap-6"
-          >
-            <button
-              @click="isModal = true"
-              class="w-full md:w-auto justify-center md:justify-start rounded-[8px] py-3 px-8 bg-[#00ffff] bg-opacity-50 flex items-center gap-2 text-base leading-6 font-normal text-white transition-all hover:bg-opacity-20 active:scale-95"
-            >
-              Ariza qoldirish
-            </button>
-            <a
-              :href="activeList?.instruction"
-              target="_blank"
-              class="w-full md:w-auto justify-center md:justify-start rounded-[8px] py-3 sm:px-8 bg-[#00ffff] bg-opacity-50 flex-center gap-2 text-base leading-6 font-normal text-white transition-all hover:bg-opacity-20 active:scale-95"
-            >
-              Barcha ma'lumotlarni yuklab olish
-            </a>
-          </div>
         </div>
       </div>
-    </div>
-    <div class="overflow-hidden">
-      <div class="wrapper h-screen">
-        <div
-          class="slide min-h-screen max-h-screen relative overflow-hidden"
-          v-for="item in carsList"
-          :key="item.id"
-          :data-id="item.id"
-        >
-          <div class="absolute w-full h-full top-0 left-0">
-            <img
-              :src="item.images[0].image"
-              class="w-full h-full object-cover"
-              alt="main"
-            />
-          </div>
-          <div class="bg-black-linear absolute inset-0 w-full h-full" />
-        </div>
-      </div>
-    </div>
-    <div>
-      <div
-        class="navigation w-full overflow-y-auto min-h-[52px] scroll-mini absolute z-10 top-[90px] md:top-[100px]"
-      >
-        <div class="min-w-[700px] container flex items-center justify-between">
+      <div class="overflow-hidden">
+        <div class="wrapper h-screen">
           <div
-            class="text-white py-2 px-4 rounded-[8px] hover-underline-animation text-base font-normal transition-all cursor-pointer hover:text-[#00ffff]"
+            class="slide min-h-screen max-h-screen relative overflow-hidden"
             v-for="item in carsList"
             :key="item.id"
-            :class="{ active: isActive === item.id }"
-            @click="setActive(item)"
+            :data-id="item.id"
           >
-            <div class="text-center">
-              {{ item.name_uz }}
+            <div class="absolute w-full h-full top-0 left-0">
+              <img
+                :src="item.images[0].image"
+                class="w-full h-full object-cover"
+                alt="main"
+              />
+            </div>
+            <div class="bg-black-linear absolute inset-0 w-full h-full" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="navigation w-full overflow-y-auto min-h-[52px] scroll-mini absolute z-10 top-[90px] md:top-[100px]"
+        >
+          <div
+            class="min-w-[700px] container flex items-center justify-between"
+          >
+            <div
+              class="text-white py-2 px-4 rounded-[8px] hover-underline-animation text-base font-normal transition-all cursor-pointer hover:text-[#00ffff]"
+              v-for="item in carsList"
+              :key="item.id"
+              :class="{ active: isActive === item.id }"
+              @click="setActive(item)"
+            >
+              <div class="text-center">
+                {{ item.name_uz }}
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <feedback-modal :value="isModal" @close="isModal = false" />
     </div>
-    <feedback-modal :value="isModal" @close="isModal = false" />
   </div>
 </template>
 
 <script>
 import FeedbackModal from "../../components/shared-components/Feedback-modal.vue";
+import MainLoading from "../../components/shared-components/MainLoading.vue";
 export default {
   name: "models",
-  components: { FeedbackModal },
+  components: { FeedbackModal, MainLoading },
   data() {
     return {
       results: [
@@ -346,6 +354,7 @@ export default {
       activeList: null,
       carsList: [],
       isModal: false,
+      loading: false,
     };
   },
   methods: {
@@ -357,6 +366,7 @@ export default {
       this.categoryDropdown = false;
     },
     getCarsList() {
+      this.loading = true;
       this.$axios
         .$get("cars/list/?limit=1000")
         .then((response) => {
@@ -366,7 +376,9 @@ export default {
         .catch((error) => {
           console.error("Malumotlarni olishda xato yuz berdi:", error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.loading = false;
+        });
     },
   },
   watch: {

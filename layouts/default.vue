@@ -5,13 +5,14 @@
       <main
         :class="{
           'min-h-[calc(100vh_-_80px)] mt-[80px]':
-            $route.name !== 'index' && $route.name !== 'models',
+            $route.path !== localePath(`/`) &&
+            $route.path !== localePath(`/models`),
         }"
       >
         <vue-snotify />
         <Nuxt />
       </main>
-      <AppFooter v-if="$route.name !== 'models'" />
+      <AppFooter v-if="$route.path !== localePath(`/models`)" />
     </div>
   </div>
 </template>

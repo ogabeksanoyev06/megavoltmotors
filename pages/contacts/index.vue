@@ -108,7 +108,7 @@
                     href="mailto:info@kia-qarshi.uz"
                     class="hover:text-blue text-white transition-all duration-200 font-semibold text-base"
                   >
-                    info@kia-qarshi.uz
+                    info@megavoltmotors.uz
                   </a>
                 </div>
               </div>

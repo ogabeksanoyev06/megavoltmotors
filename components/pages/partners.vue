@@ -1,11 +1,8 @@
 <template>
   <div class="py-10">
     <div class="container">
-      <p
-        class="text-center text-[#00FFFF] font-semibold text-[28px] sm:text-[32px] md:text-[40px] mb-[40px] uppercase"
-      >
-        Hamkorlarimiz
-      </p>
+      <titile-base-component :title="'Hamkorlarimiz'" />
+
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide
           class="swiper-slide"
@@ -25,9 +22,10 @@
 </template>
 
 <script>
+import TitileBaseComponent from "../shared-components/TitileBaseComponent.vue";
 export default {
   name: "partners",
-  components: {},
+  components: { TitileBaseComponent },
   data() {
     return {
       swiperOption: {

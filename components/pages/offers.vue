@@ -1,11 +1,7 @@
 <template>
   <div class="py-10">
     <div class="container">
-      <p
-        class="text-center text-[#00FFFF] font-semibold text-[28px] sm:text-[32px] md:text-[40px] mb-[40px] uppercase"
-      >
-        TAKLIFLAR
-      </p>
+      <titile-base-component :title="'TAKLIFLAR'" />
       <div class="lg:flex hidden justify-end gap-5 mb-5 inset-x-0 z-[999]">
         <div class="button-prev btn" @click="prev()">
           <svg
@@ -116,9 +112,10 @@
 </template>
 
 <script>
+import TitileBaseComponent from "../shared-components/TitileBaseComponent.vue";
 export default {
   name: "offers",
-  components: {},
+  components: { TitileBaseComponent },
   data() {
     return {
       swiperOption: {

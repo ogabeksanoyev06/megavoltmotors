@@ -1,6 +1,7 @@
 <template>
   <div class="py-[40px]">
-    <div class="container">
+    <main-loading v-if="loading" />
+    <div class="container" v-else>
       <div class="flex flex-col mb-[40px]">
         <span class="text-white font-semibold text-2xl md:text-[50px]">
           Katalog
@@ -167,8 +168,9 @@
 
 <script>
 import BaseModal from "../../components/shared-components/BaseModal.vue";
+import MainLoading from "../../components/shared-components/MainLoading.vue";
 export default {
-  components: { BaseModal },
+  components: { BaseModal, MainLoading },
   name: "katalog",
   data() {
     return {
@@ -177,6 +179,7 @@ export default {
       categoryId: null,
       modal: false,
       activeVideo: null,
+      loading: false,
     };
   },
   methods: {
@@ -199,6 +202,7 @@ export default {
         .finally(() => {});
     },
     getCategoryCarList() {
+      this.loading = true;
       this.$axios
         .$get(`cars/${this.categoryId}/`)
         .then((response) => {
@@ -207,7 +211,9 @@ export default {
         .catch((error) => {
           console.error("Malumotlarni olishda xato yuz berdi:", error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.loading = false;
+        });
     },
     selectedCategoryId(id) {
       this.categoryId = id;
