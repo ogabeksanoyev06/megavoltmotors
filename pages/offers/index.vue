@@ -28,11 +28,14 @@
           <div
             class="content relative z-[1] transition-all duration-500 flex flex-col gap-[10px] bg-[#f8f8f8] px-3 py-4"
           >
-            <h3 class="text-xl font-bold capitalize">{{ item.name_uz }}</h3>
+            <h3
+              class="text-xl font-bold capitalize"
+              @click="goToDetailPage(item.id)"
+            >
+              {{ item[$localeKey("name")] }}
+            </h3>
             <span class="text-sm leading-snug mb-[15px]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-              facere expedita deleniti placeat aliquam odit, ipsum quis
-              reprehenderit quod accusantium.
+              {{ item[$localeKey("discount_description")] }}
             </span>
             <div class="flex items-center">
               <span class="mr-2">
@@ -52,7 +55,9 @@
                   />
                 </svg>
               </span>
-              <span class="text-brand-orange text-sm">11.12.2023</span>
+              <span class="text-brand-orange text-sm">
+                {{ $moment(item.created_at).format("YYYY-MM-DD HH:ss") }}
+              </span>
             </div>
           </div>
         </div>
@@ -89,6 +94,9 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    goToDetailPage(carId) {
+      this.$router.push(`/detailed/${carId}`);
     },
   },
   mounted() {

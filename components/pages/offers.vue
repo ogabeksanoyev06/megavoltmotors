@@ -57,6 +57,7 @@
         :key="item.id"
       >
         <div
+          @click="goToDetailPage(item.id)"
           class="card cursor-pointer transition-all duration-500 relative block min-h-[250px] lg:min-h-[284px]"
         >
           <div class="card-backdrop"></div>
@@ -78,7 +79,7 @@
                 <p
                   class="text-white text-base font-normal leading-130 mb-3 line-clamp-3"
                 >
-                  {{ item.name_uz }}
+                  {{ item[$localeKey("discount_description")] }}
                 </p>
               </div>
               <div>
@@ -100,7 +101,11 @@
                       />
                     </svg>
                   </span>
-                  <span class="text-[#fff] text-sm opacity-60">02.02.2023</span>
+                  <span class="text-[#fff] text-sm opacity-60">
+                    {{
+                      $moment(item.created_at).format("YYYY-MM-DD HH:ss")
+                    }}</span
+                  >
                 </div>
               </div>
             </div>
@@ -180,6 +185,9 @@ export default {
           console.error("Malumotlarni olishda xato yuz berdi:", error);
         })
         .finally(() => {});
+    },
+    goToDetailPage(carId) {
+      this.$router.push(`/detailed/${carId}`);
     },
   },
   mounted() {

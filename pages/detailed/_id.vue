@@ -26,13 +26,43 @@
             {{ car.category?.name }}
           </p>
           <div class="flex flex-col gap-2">
-            <span class="text-sm sm:text-base text-white mb-[20px]">{{
-              car.description_uz
-            }}</span>
-            <span class="text-sm sm:text-base text-white">
-              Dvigatel quvvati:
-              <span class="text-[#4FF4F4] ml-1">200 kVt (272 ot kuchi)</span>
+            <span class="text-sm sm:text-base text-white mb-[20px]">
+              {{ car.description_uz }}
             </span>
+            <div class="flex flex-col gap-3 mb-[20px]" v-if="car.is_discount">
+              <p class="text-2xl font-bold text-white uppurcase">
+                Maxsus taklif
+              </p>
+              <p class="text-sm sm:text-base text-white">
+                {{ car[$localeKey("discount_description")] }}
+              </p>
+              <p class="text-sm sm:text-base text-white">
+                Chegirma narxi:
+                <span class="text-[#4FF4F4] ml-1">{{ car.price }}</span>
+              </p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <span class="text-sm sm:text-base text-white">
+                Dvigatel quvvati:
+                <span class="text-[#4FF4F4] ml-1">200 kVt (272 ot kuchi)</span>
+              </span>
+              <span class="text-sm sm:text-base text-white">
+                Ot kuchi:
+                <span class="text-[#4FF4F4] ml-1">{{ car.horse }}</span>
+              </span>
+              <span class="text-sm sm:text-base text-white">
+                Zamonaviy kamera:
+                <span class="text-[#4FF4F4] ml-1">{{ car.camera }}</span>
+              </span>
+              <span class="text-sm sm:text-base text-white">
+                Motor quvvati:
+                <span class="text-[#4FF4F4] ml-1">{{ car.motor }}</span>
+              </span>
+              <span class="text-sm sm:text-base text-white">
+                Zamonaviy faralar:
+                <span class="text-[#4FF4F4] ml-1">{{ car.headlights }}</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
