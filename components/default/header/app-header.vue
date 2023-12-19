@@ -244,10 +244,10 @@
           </li>
           <li class="cursor-pointer h-full">
             <nuxt-link
-              :to="{ path: localePath('/service') }"
+              :to="{ path: localePath('/services') }"
               class="text-black text-base leading-140 hover:text-black transition-200 font-semibold"
             >
-              {{ $t("text.service") }}
+              {{ $t("text.services") }}
             </nuxt-link>
           </li>
           <li class="cursor-pointer h-full">
