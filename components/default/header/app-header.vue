@@ -47,6 +47,14 @@
               </li>
               <li class="cursor-pointer h-full">
                 <nuxt-link
+                  :to="{ path: localePath('/service') }"
+                  class="text-base font-medium text-white flex items-center justify-center h-full"
+                >
+                  {{ $t("text.services") }}
+                </nuxt-link>
+              </li>
+              <li class="cursor-pointer h-full">
+                <nuxt-link
                   :to="{ path: localePath('/contacts') }"
                   class="text-base font-medium text-white flex items-center justify-center h-full"
                 >
@@ -236,6 +244,14 @@
           </li>
           <li class="cursor-pointer h-full">
             <nuxt-link
+              :to="{ path: localePath('/service') }"
+              class="text-black text-base leading-140 hover:text-black transition-200 font-semibold"
+            >
+              {{ $t("text.service") }}
+            </nuxt-link>
+          </li>
+          <li class="cursor-pointer h-full">
+            <nuxt-link
               :to="{ path: localePath('/contacts') }"
               class="text-black text-base leading-140 hover:text-black transition-200 font-semibold"
             >
@@ -294,7 +310,7 @@
               </div>
             </li>
             <li class="relative group">
-              <a href="#" target="_blank">
+              <a href="https://t.me/megavoltmotors" target="_blank">
                 <svg
                   width="24"
                   height="25"
@@ -318,7 +334,10 @@
               </div>
             </li>
             <li class="relative group">
-              <a href="#" target="_blank">
+              <a
+                href="https://www.youtube.com/@megavolt_motors"
+                target="_blank"
+              >
                 <svg
                   width="24"
                   height="25"

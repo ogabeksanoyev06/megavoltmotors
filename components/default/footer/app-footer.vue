@@ -93,7 +93,7 @@
             </div>
           </li>
           <li class="relative group">
-            <a href="#" target="_blank">
+            <a href="https://t.me/megavoltmotors" target="_blank">
               <svg
                 width="24"
                 height="25"
@@ -117,7 +117,7 @@
             </div>
           </li>
           <li class="relative group">
-            <a href="#" target="_blank">
+            <a href="https://www.youtube.com/@megavolt_motors" target="_blank">
               <svg
                 width="24"
                 height="25"

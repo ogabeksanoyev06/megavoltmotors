@@ -18,14 +18,14 @@
           class="swiper-slide h-full"
         >
           <video
-            src="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4"
             muted="muted"
             autoplay="autoplay"
             loop="loop"
-            preload="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4"
             playsinline=""
             class="w-full h-full object-cover"
-          />
+          >
+            <source src="/video-hero.MOV" />
+          </video>
         </swiper-slide>
       </swiper>
     </div>

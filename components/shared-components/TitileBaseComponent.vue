@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex justify-center mb-[40px]">
     <span
-      class="text-center inline-block bg-[#05141f] text-[#0FF] font-semibold px-4 text-3xl sm:px-8 sm:text-4xl md:text-5xl uppercase z-1"
+      class="text-center inline-block bg-[#05141f] text-[#0FF] font-semibold px-4 text-xl sm:px-8 sm:text-2xl md:text-4xl uppercase z-1"
     >
       {{ title }}
     </span>

@@ -9,7 +9,7 @@
       </div>
       <div class="flex flex-wrap gap-5 mb-[20px]">
         <button
-          class="transition-all h-10 min-w-[80px] border border-transparent rounded-md text-base text-[#000] font-medium text-white bg-[#00FFFF] hover:bg-[#fff] hover:text-[#00FFFF] focus:outline-none"
+          class="transition-all h-10 px-3 min-w-[80px] border border-transparent rounded-md text-base text-[#000] font-medium text-white bg-[#00FFFF] hover:bg-[#fff] hover:text-[#00FFFF] focus:outline-none"
           v-for="item in category"
           :key="item.id"
           @click="selectedCategoryId(item.id)"
