@@ -17,7 +17,7 @@
           :key="index"
           class="swiper-slide h-full"
         >
-          <!-- <video
+          <video
             muted="muted"
             autoplay="autoplay"
             loop="loop"
@@ -25,7 +25,7 @@
             class="w-full h-full object-cover"
           >
             <source :src="'/' + info.video" />
-          </video> -->
+          </video>
         </swiper-slide>
       </swiper>
     </div>
